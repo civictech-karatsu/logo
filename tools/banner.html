@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@900&family=Noto+Sans+JP:wght@700&display=swap" rel="stylesheet">
+<style>
+  /* 1280x670 バナー(note ヘッダー等)。?type=mark|horizontal|vertical で切替 */
+  body {
+    margin: 0;
+    width: 1280px;
+    height: 670px;
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Cg fill='none' stroke='%230f7b8a' stroke-opacity='.06'%3E%3Ccircle cx='0' cy='0' r='38'/%3E%3Ccircle cx='0' cy='0' r='26'/%3E%3Ccircle cx='0' cy='0' r='14'/%3E%3Ccircle cx='80' cy='0' r='38'/%3E%3Ccircle cx='80' cy='0' r='26'/%3E%3Ccircle cx='80' cy='0' r='14'/%3E%3Ccircle cx='40' cy='20' r='38'/%3E%3Ccircle cx='40' cy='20' r='26'/%3E%3Ccircle cx='40' cy='20' r='14'/%3E%3Ccircle cx='0' cy='40' r='38'/%3E%3Ccircle cx='0' cy='40' r='26'/%3E%3Ccircle cx='0' cy='40' r='14'/%3E%3Ccircle cx='80' cy='40' r='38'/%3E%3Ccircle cx='80' cy='40' r='26'/%3E%3Ccircle cx='80' cy='40' r='14'/%3E%3C/g%3E%3C/svg%3E") bottom / 160px 80px repeat-x,
+      #f6f2e9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .lockup { display: none; align-items: center; }
+  body.t-mark .lockup.mark { display: flex; }
+  body.t-horizontal .lockup.horizontal { display: flex; gap: 44px; }
+  body.t-vertical .lockup.vertical { display: flex; flex-direction: column; gap: 26px; }
+
+  .lockup.mark img { width: 480px; height: 480px; }
+  .lockup.horizontal img { width: 230px; height: 230px; }
+  .lockup.vertical img { width: 300px; height: 300px; }
+
+  .text { display: flex; flex-direction: column; line-height: 1.2; }
+  .lockup.vertical .text { align-items: center; }
+  .ja {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    color: #12343b;
+  }
+  .en {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.42em;
+    color: #0f7b8a;
+  }
+  .lockup.horizontal .ja { font-size: 88px; }
+  .lockup.horizontal .en { font-size: 30px; margin-top: 14px; }
+  .lockup.vertical .ja { font-size: 60px; letter-spacing: 0.08em; }
+  .lockup.vertical .en { font-size: 21px; margin-top: 10px; }
+</style>
+</head>
+<body>
+  <div class="lockup mark"><img src="mark.svg" alt=""></div>
+  <div class="lockup horizontal">
+    <img src="mark.svg" alt="">
+    <span class="text">
+      <span class="ja">シビックテック唐津</span>
+      <span class="en">CIVIC TECH KARATSU</span>
+    </span>
+  </div>
+  <div class="lockup vertical">
+    <img src="mark.svg" alt="">
+    <span class="text">
+      <span class="ja">シビックテック唐津</span>
+      <span class="en">CIVIC TECH KARATSU</span>
+    </span>
+  </div>
+  <script>
+    const type = new URLSearchParams(location.search).get('type') || 'mark';
+    document.body.classList.add('t-' + type);
+  </script>
+</body>
+</html>

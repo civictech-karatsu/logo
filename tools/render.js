@@ -52,5 +52,16 @@ const OUT = path.join(__dirname, '..', 'png');
     await p.close();
   }
 
+  // 3) 1280x670 バナー(note ヘッダー等)。単体/横組み/縦組み
+  for (const type of ['mark', 'horizontal', 'vertical']) {
+    const p = await browser.newPage({ viewport: { width: 1280, height: 670 } });
+    await p.goto('file://' + path.join(__dirname, 'banner.html') + `?type=${type}`);
+    await p.evaluate(() => document.fonts.ready);
+    await p.waitForTimeout(300);
+    await p.screenshot({ path: `${OUT}/banner-${type}-1280x670.png` });
+    console.log(`banner-${type}-1280x670.png`);
+    await p.close();
+  }
+
   await browser.close();
 })();

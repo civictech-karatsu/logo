@@ -13,6 +13,14 @@
 | 団体名あり・横組み | (tools/lockup-horizontal.html から生成) | `png/lockup-horizontal@2x.png` | `png/lockup-horizontal-white@2x.png` |
 | 団体名あり・縦組み | (tools/lockup-vertical.html から生成) | `png/lockup-vertical@2x.png` | `png/lockup-vertical-white@2x.png` |
 
+### バナー(1280×670 / note ヘッダー等)
+
+生成り背景+青海波の帯入り。`tools/banner.html` から生成。
+
+- `png/banner-mark-1280x670.png` … 単体マーク
+- `png/banner-horizontal-1280x670.png` … 団体名あり・横組み
+- `png/banner-vertical-1280x670.png` … 団体名あり・縦組み
+
 - 明るい背景には通常版、濃い背景(紺・墨色など)には `mark-light` を使ってください。
 - 透過 PNG が使えない場面(SNS アイコン・印刷物への貼り込みなど)では白背景版を使ってください。
 - 団体名ありパターンの書体: 和文 = Zen Old Mincho(900) / 欧文 = Noto Sans JP(700)
