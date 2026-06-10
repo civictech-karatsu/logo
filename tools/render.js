@@ -14,7 +14,7 @@ const OUT = path.join(__dirname, '..', 'png');
   const browser = await chromium.launch();
   const page = await browser.newPage();
 
-  // 1) 単体マーク(透過)を各サイズで
+  // 1) 単体マークを各サイズで(透過と白背景の2種)
   const markSvg = fs.readFileSync(path.join(SVG, 'mark.svg'), 'utf8');
   const markLightSvg = fs.readFileSync(path.join(SVG, 'mark-light.svg'), 'utf8');
   for (const [name, svg] of [['mark', markSvg], ['mark-light', markLightSvg]]) {
@@ -25,6 +25,11 @@ const OUT = path.join(__dirname, '..', 'png');
       );
       await page.screenshot({ path: `${OUT}/${name}-${size}.png`, omitBackground: true });
       console.log(`${name}-${size}.png`);
+      // 白背景版(明色マークは白地で見えないので通常マークのみ)
+      if (name === 'mark') {
+        await page.screenshot({ path: `${OUT}/${name}-${size}-white.png` });
+        console.log(`${name}-${size}-white.png`);
+      }
     }
   }
 
@@ -40,6 +45,10 @@ const OUT = path.join(__dirname, '..', 'png');
     const el = await p.$('#target');
     await el.screenshot({ path: `${OUT}/${out}@2x.png`, omitBackground: true });
     console.log(`${out}@2x.png`);
+    // 白背景版
+    await p.evaluate(() => { document.body.style.background = '#ffffff'; });
+    await el.screenshot({ path: `${OUT}/${out}-white@2x.png` });
+    console.log(`${out}-white@2x.png`);
     await p.close();
   }
 

@@ -6,14 +6,15 @@
 
 ## パターン一覧
 
-| パターン | SVG | PNG(透過) |
-|---|---|---|
-| 単体マーク | `svg/mark.svg` | `png/mark-256.png` / `mark-512.png` / `mark-1024.png` |
-| 単体マーク(明色・濃色背景用) | `svg/mark-light.svg` | `png/mark-light-256.png` / `mark-light-512.png` / `mark-light-1024.png` |
-| 団体名あり・横組み | (tools/lockup-horizontal.html から生成) | `png/lockup-horizontal@2x.png` |
-| 団体名あり・縦組み | (tools/lockup-vertical.html から生成) | `png/lockup-vertical@2x.png` |
+| パターン | SVG | PNG(透過) | PNG(白背景) |
+|---|---|---|---|
+| 単体マーク | `svg/mark.svg` | `png/mark-{256,512,1024}.png` | `png/mark-{256,512,1024}-white.png` |
+| 単体マーク(明色・濃色背景用) | `svg/mark-light.svg` | `png/mark-light-{256,512,1024}.png` | —(白地では見えないため無し) |
+| 団体名あり・横組み | (tools/lockup-horizontal.html から生成) | `png/lockup-horizontal@2x.png` | `png/lockup-horizontal-white@2x.png` |
+| 団体名あり・縦組み | (tools/lockup-vertical.html から生成) | `png/lockup-vertical@2x.png` | `png/lockup-vertical-white@2x.png` |
 
 - 明るい背景には通常版、濃い背景(紺・墨色など)には `mark-light` を使ってください。
+- 透過 PNG が使えない場面(SNS アイコン・印刷物への貼り込みなど)では白背景版を使ってください。
 - 団体名ありパターンの書体: 和文 = Zen Old Mincho(900) / 欧文 = Noto Sans JP(700)
 
 ## ブランドカラー
